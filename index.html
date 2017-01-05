@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NG Movie</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/ngMovie.js" charset="utf-8"></script>
+  </head>
+  <body ng-app='myApp'>
+    <h1>NG Movie</h1>
+    <div ng-controller='MovieController'>
+      <h2>Movie Thing</h2>
+      <input type="text" placeholder="search for..." ng-model='movieIn'>
+      <button ng-click='getMovie();'>Search</button>
+      <div ng-repeat='movie in searchResults'>
+          <img ng-src="{{ movie.Poster }}" ng-click='reMovie( $index );'/>
+          <p>
+            <strong>{{ movie.Title }}</strong>({{ movie.Year}})
+          </p>
+      </div>
+    </div>
+  </body>
+</html>
